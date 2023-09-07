@@ -1,0 +1,19 @@
+---
+interface Props {
+  name: string
+  id: string
+  image: string
+}
+
+const { name, id, image } = Astro.props
+---
+
+<a href={`/launch/${id}`}>
+  <picture>
+    <img src={image} alt='name' />
+  </picture>
+
+  <header>
+    <h2>{name}</h2>
+  </header>
+</a>
