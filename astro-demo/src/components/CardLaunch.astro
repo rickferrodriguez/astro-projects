@@ -3,9 +3,12 @@ interface Props {
   name: string
   id: string
   image: string
+  success: boolean
+  flightNumber: number
 }
 
-const { name, id, image } = Astro.props
+const { name, id, image, success, flightNumber } = Astro.props
+const LaunchStatus = success === true ? 'Success' : 'Failure'
 ---
 
 <a href={`/launch/${id}`}>
@@ -14,6 +17,7 @@ const { name, id, image } = Astro.props
   </picture>
 
   <header>
-    <h2>{name}</h2>
+    <span>{LaunchStatus}</span>
+    <h2>Flight #{flightNumber}</h2>
   </header>
 </a>

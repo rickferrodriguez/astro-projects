@@ -22,16 +22,20 @@ console.log(launches)
 
 <div class='grid gap-8 sm:grid-cols-2 lg:grid-cols-3'>
   {
-    launches.map((launch) => (
-      <article>
-        {
-          <CardLaunch
-            name={launch.name}
-            image={launch.links.patch.small}
-            id={launch.id}
-          />
-        }
-      </article>
-    ))
+    launches.map(
+      ({ name, id, links, success, flight_number: flightNumber }) => (
+        <article>
+          {
+            <CardLaunch
+              name={name}
+              image={links.patch.small}
+              id={id}
+              success={success}
+              flightNumber={flightNumber}
+            />
+          }
+        </article>
+      )
+    )
   }
 </div>
